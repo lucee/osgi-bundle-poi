@@ -2,11 +2,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.lucee</groupId>
   <artifactId>poi</artifactId>
-  <version>3.15.0</version>
-  <name>poi</name>
+  <version>4.1.0</version>
+  <name>Apache POI</name>
   <packaging>bundle</packaging>
 
-  <description>OSGi Version of poi</description>
+  <description>OSGi Version of Apache POI</description>
   <url>http://maven.lucee.org/poi/</url>
 
   <!-- same license as the original jar -->
@@ -95,7 +95,7 @@
                  <artifactItem>
                    <groupId>org.apache.poi</groupId>
                     <artifactId>poi</artifactId>
-                    <version>3.15</version>
+                    <version>4.1.0</version>
                    <type>jar</type>
                    <overWrite>false</overWrite>
                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
@@ -118,11 +118,11 @@
             <Bundle-Name>org.lucee.poi</Bundle-Name>
             <Bundle-SymbolicName>org.lucee.poi</Bundle-SymbolicName>
             <Bundle-Description>OSGI version of jar ${project.name}</Bundle-Description>
-            <Export-Package>*</Export-Package>
+            <Export-Package>*,META-INF.services.*</Export-Package>
             <!-- <Require-Bundle></Require-Bundle> -->
             <!-- <Require-Bundle-Fragment></Require-Bundle-Fragment> -->
-            <!-- <Import-Package>*</Import-Package> -->
-            <!-- <DynamicImport-Package>*</DynamicImport-Package> -->
+            <Import-Package>!org.apache.commons.math3.exception,!org.apache.commons.math3.linear,!org.apache.commons.math3.stat.descriptive.moment,!org.apache.commons.math3.stat.regression,*</Import-Package>
+            <DynamicImport-Package>org.apache.commons.math3.exception,org.apache.commons.math3.linear,org.apache.commons.math3.stat.descriptive.moment,org.apache.commons.math3.stat.regression</DynamicImport-Package>
             <!-- <Fragment-Host></Fragment-Host> -->
           </instructions>
         </configuration>
@@ -139,7 +139,7 @@
     <url>https://github.com/lucee/osgi-bundle-poi</url>
     <connection>scm:git:git://github.com/lucee/osgi-bundle-poi.git</connection>
     <developerConnection>scm:git:git@github.com:lucee/osgi-bundle-poi.git</developerConnection>
-    <tag>poi OSGi library</tag>
+    <tag>Apache POI OSGi library</tag>
   </scm>
 
   <distributionManagement>
